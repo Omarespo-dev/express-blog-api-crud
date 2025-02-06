@@ -20,7 +20,7 @@ function show(req,res){
     // TROVIAMO IL POST TRAMITE ID\ 
     
     // Procedimento utilizzo il FIND per trovare gli oggetti per id dichiaro variabile post che sara uguale a (posts.find) quindi va a trovare l elemento per id, poi torniamo l elemento iesimo che sarebbe post pero gli dico che deva andare a prendere per id poi gli dico che quell id deve essere === all id che ha inserito l utente
-    
+
     const post =posts.find(function (post) {
         return post.id === id
     })
@@ -43,7 +43,29 @@ function update(req,res){
 
 // LA QUINTA E PER DELETE
 function destroy(req,res){
-    res.send("Cancellazione del post" + req.params.id )
+    // res.send("Cancellazione del post" + req.params.id )
+    
+    // RECUPERIAMO ID DAL URL  E IMPOSTIAMOLO COME NUMERO INTERO
+    const id = parseInt(req.params.id)
+
+    // TROVIAMO IL POST TRAMITE ID\ 
+    
+    // Procedimento utilizzo il FIND per trovare gli oggetti per id dichiaro variabile post che sara uguale a (posts.find) quindi va a trovare l elemento per id, poi torniamo l elemento iesimo che sarebbe post pero gli dico che deva andare a prendere per id poi gli dico che quell id deve essere === all id che ha inserito l utente
+
+    const post =posts.find(function (post) {
+        return post.id === id
+    })
+
+    // RIMUOVIAMO UN POST 
+    // POSSIAMO UTILIZZARE SPLICE
+    posts.splice(posts.indexOf(post), 1);
+
+    // Verifichiamo sul terminale
+    console.log(posts);
+
+    // Restituiamo lo status 204
+    res.sendStatus(204)
+    
 }
 
 // Esportiamo il file controller 
