@@ -2,8 +2,6 @@
 const express = require('express')
 const router = express.Router();
 
-// BONUS IMPORTIAMO DATA/POSTS
-const data = require("../data/posts")
 
 
 // INDEX VISUALIZZA TUTTI GLI ELEMENTI CON .GET 

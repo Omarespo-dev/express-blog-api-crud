@@ -43,7 +43,7 @@ const port = 3000
 // 
 
 // DEFINIAMO L'USO DI UNA CARTELLA PUBLIC CON ALL' INTERNO DEI FILE STATICI 
-app.use(express.static('./public/imgs/posts'));
+app.use(express.static('./public'));
 
 
 
