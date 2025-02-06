@@ -1,5 +1,5 @@
 //  IMPORTIAMO DATA/POSTS PERCHE ANDIAMO A SEPARARE LA LOGICA DAL FILE /ROUTERS/POSTS DOVE GESTIAMO LE DIVERSE RICHIESTE E LA AGGIUGIAMO QUI CON DELLE FUNZIONI CHE ANDREMO A RICHIAMARE IN ROUTER
-const data = require("../data/posts");
+const posts = require("../data/dataPosts");
 
 
 // ADDIAMO LE FUNZIONI 
@@ -7,13 +7,26 @@ const data = require("../data/posts");
 // LA PRIMA E PER L INDEX
 function index(req,res){
     // BONUS RESTITUISCO IN FORMATO JSON L ARRAY DI OGGETTI
-    res.json(data)
+    res.json(posts)
 }
 
 // LA SECONDA E PER SHOW
 function show(req,res){
     // BONUS RESTITUISCO UN SINGOLO ELEMENTO IN FORMATO JSON 
-    res.json(data[req.params.id])
+    
+    // RECUPERIAMO ID DAL URL  E IMPOSTIAMOLO COME NUMERO INTERO
+    const id = parseInt(req.params.id)
+
+    // TROVIAMO IL POST TRAMITE ID\ 
+    
+    // Procedimento utilizzo il FIND per trovare gli oggetti per id dichiaro variabile post che sara uguale a (posts.find) quindi va a trovare l elemento per id, poi torniamo l elemento iesimo che sarebbe post pero gli dico che deva andare a prendere per id poi gli dico che quell id deve essere === all id che ha inserito l utente
+    
+    const post =posts.find(function (post) {
+        return post.id === id
+    })
+
+    // Restituiamolo sotto forma di JSON
+    res.json(post);
 }
 
 
