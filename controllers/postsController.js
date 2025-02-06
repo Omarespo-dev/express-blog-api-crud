@@ -33,3 +33,5 @@ function destroy(req,res){
     res.send("Cancellazione del post" + req.params.id )
 }
 
+// Esportiamo il file controller 
+module.exports = {index,show,store,update,destroy}

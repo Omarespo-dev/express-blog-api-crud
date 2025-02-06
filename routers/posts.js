@@ -2,28 +2,29 @@
 const express = require('express')
 const router = express.Router();
 
-
+// Importiamo postcontroller 
+const postcontroller =require("../controllers/postsController")
 
 // INDEX VISUALIZZA TUTTI GLI ELEMENTI CON .GET 
-router.get("/", )
+router.get("/", postcontroller.index)
 
 
 // SHOW VISUALIZZA UN ELEMENTO CON .GET 
-router.get("/:id", )
+router.get("/:id", postcontroller.show)
 
 
 // STORE CREA UN NUOVO ELEMENTO CON .POST
-router.post("/", )
+router.post("/", postcontroller.store)
 
 
 
 // UPDATE MODIFICA INTERAMENTE L ELEMENTO  CON .PUT
-router.put("/:id", )
+router.put("/:id", postcontroller.update)
 
 
 
 // DELETE ELIMINA UN ELEMENTO CON .DELETE
-router.delete("/:id", )
+router.delete("/:id", postcontroller.destroy)
 
 
 
