@@ -5,38 +5,26 @@ const router = express.Router();
 
 
 // INDEX VISUALIZZA TUTTI GLI ELEMENTI CON .GET 
-router.get("/", function (req,res){
-    
-    // BONUS RESTITUISCO IN FORMATO JSON L ARRAY DI OGGETTI
-    res.json(data)
-})
+router.get("/", )
 
 
 // SHOW VISUALIZZA UN ELEMENTO CON .GET 
-router.get("/:id", function (req,res){
-    
-    // BONUS RESTITUISCO UN SINGOLO ELEMENTO IN FORMATO JSON 
-    res.json(data[req.params.id])
-})
+router.get("/:id", )
 
 
 // STORE CREA UN NUOVO ELEMENTO CON .POST
-router.post("/", function (req,res){
-    res.send("Creazione nuova lista")
-})
+router.post("/", )
 
 
 
 // UPDATE MODIFICA INTERAMENTE L ELEMENTO  CON .PUT
-router.put("/:id", function (req,res){
-    res.send("Modifica intera della lista" + req.params.id )
-})
+router.put("/:id", )
 
 
 
 // DELETE ELIMINA UN ELEMENTO CON .DELETE
-router.delete("/:id", function (req,res){
-    res.send("Cancellazione del post" + req.params.id )
-})
+router.delete("/:id", )
+
+
 
 module.exports = router
