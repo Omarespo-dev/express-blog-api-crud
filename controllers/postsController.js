@@ -66,7 +66,40 @@ function store(req,res){
 
 // LA QUARTA E PER UPDATE
 function update(req,res){
-    res.send("Modifica intera della lista" + req.params.id )
+    // recuperiamo l'id dall' URL trasformandolo in un numero intero
+    const id =parseInt(req.params.id)
+
+    // TROVIAMO IL POST TRAMITE ID\ 
+    
+    // Procedimento utilizzo il FIND per trovare gli oggetti per id dichiaro variabile post che sara uguale a (posts.find) quindi va a trovare l elemento per id, poi torniamo l elemento iesimo che sarebbe post pero gli dico che deva andare a prendere per id poi gli dico che quell id deve essere === all id che ha inserito l utente
+
+    const post =posts.find(function (post) {
+        return post.id === id
+    })
+
+    // condizione di verifica 
+    if(!post){
+        res.status(404);
+        // Ritorni l errore in formato JSON
+        return res.json({
+            error:"Not found",
+            message:"Post non trovato"
+        })
+    }
+
+    // Aggiorniamo i post 
+    post.title = req.body.title
+    post.content = req.body.content
+    post.image = req.body.image
+    post.tags = req.body.tags
+
+    // controllo posts
+    console.log(posts)
+
+    // restituisce in formato json il post aggioranto
+    res.json(post)
+
+    // res.send("Modifica intera della lista" + req.params.id )
 }
 
 
