@@ -39,7 +39,29 @@ function store(req,res){
     // RICHIEDO IL BODY
     console.log(req.body);
 
-    res.send("Creazione nuova lista")
+    // Creiamo un nuovo id incrementando l'ultimo id presente
+    const newId = posts[posts.length - 1].id + 1;
+
+    // Creiamo un nuovo oggetto posts
+    const newPost = {
+        id: newId,
+        title: req.body.title,
+        content: req.body.content,
+        image: req.body.image,
+        tags: req.body.tags
+    }
+
+    // Aggiungiamo il nuovo post
+    posts.push(newPost);
+
+    // controlliamo
+    console.log(posts);
+
+    // Restituiamo lo status corretto
+    res.status(201);
+    res.json(newPost);
+
+    // res.send("Creazione nuova lista")
 }
 
 // LA QUARTA E PER UPDATE
