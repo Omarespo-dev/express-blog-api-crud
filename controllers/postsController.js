@@ -8,6 +8,9 @@ const posts = require("../data/dataPosts");
 function index(req,res){
     // BONUS RESTITUISCO IN FORMATO JSON L ARRAY DI OGGETTI
     res.json(posts)
+
+    // FILTRO I POST DOVE GLI DICHIARO UNA VARIABILE 
+
 }
 
 // LA SECONDA E PER SHOW
@@ -32,6 +35,10 @@ function show(req,res){
 
 // LA TERZA E PER STORE
 function store(req,res){
+    
+    // RICHIEDO IL BODY
+    console.log(req.body);
+
     res.send("Creazione nuova lista")
 }
 

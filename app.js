@@ -24,6 +24,8 @@ const app = express()
 // Numero porta del server 
 const port = 3000
 
+// METTO IL BODY PARSER
+app.use(express.json())
 
 // 
     // IMPORTO IL ROUTER 
