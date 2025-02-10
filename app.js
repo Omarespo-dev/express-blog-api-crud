@@ -17,6 +17,8 @@
 
 // Importiamo express una volta che lo installiamo 
 const express = require('express')
+// importo notFound
+const notFound =require("./Middleware/notFound")
 
 // L'istanza app è un oggetto che rappresenta il server express.
 const app = express()
@@ -26,6 +28,9 @@ const port = 3000
 
 // METTO IL BODY PARSER
 app.use(express.json())
+// DEFINIAMO L'USO DI UNA CARTELLA PUBLIC CON ALL' INTERNO DEI FILE STATICI 
+app.use(express.static('./public'));
+
 
 // 
     // IMPORTO IL ROUTER 
@@ -44,9 +49,8 @@ app.use(express.json())
 
 // 
 
-// DEFINIAMO L'USO DI UNA CARTELLA PUBLIC CON ALL' INTERNO DEI FILE STATICI 
-app.use(express.static('./public'));
-
+// RICHIAMO NOTR FOUND 
+app.use(notFound)
 
 
 // Rimane in chiamata con la porta 
