@@ -19,6 +19,8 @@
 const express = require('express')
 // importo notFound
 const notFound =require("./Middleware/notFound")
+// importo errorsHandler
+const errorsHandler = require("./Middleware/errorsHandler")
 
 // L'istanza app è un oggetto che rappresenta il server express.
 const app = express()
@@ -38,9 +40,8 @@ app.use(express.static('./public'));
 
     // Rotta di tipo get con la home /
     app.get('/', (req, res) => {
-
         // Invia una risposta al client
-        res.send(`Server del mio blog`)
+        res.send(errorsHandler)
     })
 
     // Diciamo ad express che ci sono altre rotte con .use
@@ -51,6 +52,9 @@ app.use(express.static('./public'));
 
 // RICHIAMO NOTR FOUND 
 app.use(notFound)
+
+// RICHIAMO errorsHandler
+app.use(errorsHandler)
 
 
 // Rimane in chiamata con la porta 

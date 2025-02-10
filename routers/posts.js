@@ -5,6 +5,7 @@ const router = express.Router();
 // Importiamo postcontroller 
 const postcontroller =require("../controllers/postsController")
 
+
 // INDEX VISUALIZZA TUTTI GLI ELEMENTI CON .GET 
 router.get("/", postcontroller.index)
 
