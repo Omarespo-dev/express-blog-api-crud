@@ -50,3 +50,13 @@ Testiamolo con postman.
 
 Milestone 4
 Ripetiamo il procedimento per la rotta di Update, in modo da avere la possibilità di modificare le nostre risorse.
+
+
+<!-- PARTE 3  Express Blog - Middlewares-->
+Esercizio
+
+1) Dopo aver completato tutte le operazioni CRUD, completiamo le nostre API inserendo un middleware per la gestione delle rotte non registrate e uno per la gestione degli errori.
+
+2) Se viene chiamato un endpoint inesistente, un middleware dovrà rispondere un messaggio e uno status appropriato.
+
+3) Se viene generato un errore, un middleware si occuperà di rispondere con un messaggio e uno status appropriato.

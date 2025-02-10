@@ -7,10 +7,20 @@ const posts = require("../data/dataPosts");
 // LA PRIMA E PER L INDEX
 function index(req,res){
     // BONUS RESTITUISCO IN FORMATO JSON L ARRAY DI OGGETTI
-    res.json(posts)
+    // res.json(posts)
 
     // FILTRO I POST DOVE GLI DICHIARO UNA VARIABILE 
+    let postFiltrati = posts
 
+    // se la richiesta del cliente contiene un filtro allora filtriamo i post
+    if(req.query.tag){
+        postFiltrati = posts.filter(
+            postFiltro => postFiltro.tags.includes(req.query.tag)
+        )
+    }
+
+    // restituisci la variabile postFiltrati
+    res.json(postFiltrati)
 }
 
 // LA SECONDA E PER SHOW
@@ -117,7 +127,7 @@ function destroy(req,res){
     const post =posts.find(function (post) {
         return post.id === id
     })
-
+    
     // RIMUOVIAMO UN POST 
     // POSSIAMO UTILIZZARE SPLICE
     posts.splice(posts.indexOf(post), 1);
